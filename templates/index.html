@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<script src="../static/bower_components/jquery/dist/jquery.js"></script>
+	<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../static/bower_components/metro-ui-css/build/js/metro.min.js"></script>
+	<script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.min.js"></script>
+	<script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.css">
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.css">
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/default.css">
+	<script>
+
+function getItemElement() {
+  var elem = document.createElement('div');
+  var wRand = Math.random();
+  var hRand = Math.random();
+  var widthClass = wRand > 0.92 ? 'w4' : wRand > 0.8 ? 'w3' : wRand > 0.6 ? 'w2' : '';
+  var heightClass = hRand > 0.85 ? 'h4' : hRand > 0.6 ? 'h3' : hRand > 0.35 ? 'h2' : '';
+  elem.className = 'item ' + widthClass + ' ' + heightClass;
+  return elem;
+}
+
+
+$( function() {
+  var $container = $('.masonry').masonry({
+    columnWidth: 60
+  });
+  
+  $('#reload').on( 'click', function() {
+    var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+    $container.append( elems ).masonry( 'appended', elems );
+  });
+});
+</script>
+</head>
+
+
+<button id="reload"> Shuffle </button>
+
+<div class="masonry">
+	<div class="box">
+	<p> 今天我在厕所里，想到了很多 </p>
+</div>
+
+<div class="box">
+    <p>你想蛇，赶紧把屎拉出来吧</p>
+ </div>
+
+ <div class="box">
+    <p>不如回家养猪</p>
+ </div>
+ <div class="box">
+ 	<p>啊？养什么猪</p>
+ </div>
+  <div class="item w3"></div>
+  <div class="item h2"></div>
+  <div class="item h4"></div>
+  <div class="item w2"></div>
+  <div class="item h2"></div>
+</div>
+
+
+
+
+
+
+
+
+
+</html>
