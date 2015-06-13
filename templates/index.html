@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
   <script type="text/javascript src="http://ajax.microsoft.com/ajax/jquery
 /jquery-1.4.min.js""></script>
 	<script src="../static/bower_components/jquery/dist/jquery.js"></script>
@@ -10,34 +10,69 @@
 	<script src="../static/bower_components/metro-ui-css/build/js/metro.min.js"></script>
 	<script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.min.js"></script>
 	<script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.js"></script>
+  
 	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.min.css">
 	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.css">
 	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.css">
 	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.min.css">
 	<link rel="stylesheet" type="text/css" href="../static/default.css">
+  <link rel="stylesheet" href="../static/lib/genericons/genericons.css">
+  <link rel="stylesheet" href="../static/base.css">
 
 </head>
-<div class="scrollable">
-  <div class="wrap">
-  <div class="masonry">
-	  <div class="box">
-      <p> 今天我在厕所里，想到了很多 </p>
-    </div>
+<body>
+        <div id="ptr">
+            <span class="genericon genericon-next"></span>
 
-    <div class="box">
-      <p>你想蛇，赶紧把屎拉出来吧</p>
-    </div>
+            <div class="loading">
+                <span id="l1"></span>
+                <span id="l2"></span>
+                <span id="l3"></span>
+            </div>
+        </div>
 
-    <div class="box">
-      <p>不如回家养猪</p>
-    </div>
-    <div class="box">
- 	    <p>啊？养什么猪</p>
-    </div>
+        <div id="content">
+          <div class="masonry">
+            <div class="box">
+              <p> 今天我在厕所里，想到了很多 </p>
+            </div>
 
-  </div>
-  </div>
-</div>
+            <div class="box">
+              <p>你想蛇，赶紧把屎拉出来吧</p>
+            </div>
 
+            <div class="box">
+              <p>不如回家养猪</p>
+            </div>
+
+            <div class="box">
+              <p>啊？养什么猪</p>
+            </div>
+          </div>
+        </div>
+        <script src="../static/lib/hammer.2.0.4.js"></script>
+        <script src="../static/lib/wptr.1.1.js"></script>
+        <script>
+            window.onload = function() {
+                WebPullToRefresh.init( {
+                    loadingFunction: exampleLoadingFunction
+                } );
+            };
+
+            // Just an example loading function that returns a
+            // promise that WebPullToRefresh can use.
+            var exampleLoadingFunction = function() {
+                return new Promise( function( resolve, reject ) {
+                    // Run some async loading code here
+
+                    if ( true /* if the loading worked */ ) {
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                } );
+            };
+        </script>
+    </body>
 
 </html>
