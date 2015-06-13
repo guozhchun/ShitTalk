@@ -20,8 +20,14 @@ bootstrap = Bootstrap(app)
 def index():
     return render_template('index.html')
 
+<<<<<<< HEAD
 app.wsgi_app = ProxyFix(app.wsgi_app)
 # if __name__ == '__main__':
 #     app.run(debug=True)
+=======
+
+if __name__ == '__main__':
+    app.run(debug=True, port=80, host='192.168.1.103')
+>>>>>>> 7094cbaf654b6a7506ba89bc10042c05ce052343
 
     
