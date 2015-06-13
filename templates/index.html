@@ -1,59 +1,408 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
-  <script type="text/javascript src="http://ajax.microsoft.com/ajax/jquery
-/jquery-1.4.min.js""></script>
-	<script src="../static/bower_components/jquery/dist/jquery.js"></script>
-	<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="../static/bower_components/metro-ui-css/build/js/metro.min.js"></script>
-	<script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.min.js"></script>
-	<script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.js"></script>
-  
-	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.css">
-	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.css">
-	<link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/default.css">
-  <link rel="stylesheet" href="../static/lib/genericons/genericons.css">
-  <link rel="stylesheet" href="../static/base.css">
-
-</head>
-<body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1">
+        <script type="text/javascript src=">
+</script>
+        <script src="../static/bower_components/jquery/dist/jquery.js" type="text/javascript">
+</script>
+        <script src="../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript">
+</script>
+        <script src="../static/bower_components/metro-ui-css/build/js/metro.min.js" type="text/javascript">
+</script>
+        <script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.min.js" type="text/javascript">
+</script>
+        <script src="../static/bower_components/jquery-masonry/dist/masonry.pkgd.js" type="text/javascript">
+</script>
+        <script src="../static/assets/js/bootstrap.js" type="text/javascript">
+</script>
+        <link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.min.css">
+        <link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro.css">
+        <link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.css">
+        <link rel="stylesheet" type="text/css" href="../static/bower_components/metro-ui-css/build/css/metro-icons.min.css">
+        <link rel="stylesheet" type="text/css" href="../static/default.css">
+        <link rel="stylesheet" href="../static/lib/genericons/genericons.css" type="text/css">
+        <link rel="stylesheet" href="../static/base.css" type="text/css">
+        <link rel="stylesheet" href="../static/assets/css/bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="../static/assets/css/google-plus.css" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+        <title></title>
+    </head>
+    <body>
         <div id="ptr">
             <span class="genericon genericon-next"></span>
-
             <div class="loading">
                 <span id="l1"></span>
                 <span id="l2"></span>
                 <span id="l3"></span>
             </div>
         </div>
-
-        <div id="content">
-          <div class="masonry">
-            <div class="box">
-              <p> 今天我在厕所里，想到了很多 </p>
+        <div class="navbar navbar-fixed-top header">
+            <div class="col-md-12">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">ShitTalk</a>
+                </div>
             </div>
-
-            <div class="box">
-              <p>你想蛇，赶紧把屎拉出来吧</p>
-            </div>
-
-            <div class="box">
-              <p>不如回家养猪</p>
-            </div>
-
-            <div class="box">
-              <p>啊？养什么猪</p>
-            </div>
-          </div>
         </div>
-        <script src="../static/lib/hammer.2.0.4.js"></script>
-        <script src="../static/lib/wptr.1.1.js"></script>
-        <script>
-            window.onload = function() {
+        <div id="content">
+            <div class="masonry">
+                <div class="box panel-body">
+                    <p>
+                        今天我在厕所里，想到了很多
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        你想蛇，赶紧把屎拉出来吧
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        不如回家养猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？养什么猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        今天我在厕所里，想到了很多
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        你想蛇，赶紧把屎拉出来吧
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        不如回家养猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？养什么猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        今天我在厕所里，想到了很多
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        你想蛇，赶紧把屎拉出来吧
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        不如回家养猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？养什么猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        今天我在厕所里，想到了很多
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        你想蛇，赶紧把屎拉出来吧
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        不如回家养猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？养什么猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        今天我在厕所里，想到了很多
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        你想蛇，赶紧把屎拉出来吧
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        不如回家养猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？养什么猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        今天我在厕所里，想到了很多
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        你想蛇，赶紧把屎拉出来吧
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        不如回家养猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？养什么猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        今天我在厕所里，想到了很多
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        你想蛇，赶紧把屎拉出来吧
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        不如回家养猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="box panel-body">
+                    <p>
+                        啊？养什么猪
+                    </p>
+                    <div class="box-fun">
+                        <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                        </div>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <script src="../static/lib/hammer.2.0.4.js" type="text/javascript">
+</script>
+        <script src="../static/lib/wptr.1.1.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+    window.onload = function() {
                 WebPullToRefresh.init( {
                     loadingFunction: exampleLoadingFunction
                 } );
@@ -74,5 +423,4 @@
             };
         </script>
     </body>
-
 </html>

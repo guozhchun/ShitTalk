@@ -12,7 +12,7 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	color: #fff;
+	color: gray;
 	z-index: 10;
 	text-align: center;
 	height: 50px;
@@ -41,7 +41,7 @@ body {
 	display: inline-block;
 	text-align: center;
 	opacity: .4;
-	margin: 12px 0 0 5px;
+	margin: 62px 0 0 5px;
 	display: none;
 }
 .ptr-loading .loading {
@@ -101,7 +101,7 @@ body {
 	100% {
 		-webkit-transform: scale(1);
 		transform: scale(1);
-		background-color: #fff;
+		background-color: #eee;
 		opacity: 1;
 	}
 }

@@ -5,35 +5,47 @@
 }
 
 
+#content {
+  margin-top: 50px;
+}
 
 .box {
   float: left;
-  background: #ADD;
-  border: 2px solid #D34523;
+  min-width: 100px;
+  background: #fff;
+  border: 0;
+  margin: 1px;
   border-color: hsla(0, 0%, 0%, 0.5);
   text-align: center;
   border-radius: 5px;
+  padding-bottom: 0;
+}
+
+.box-fun {
+  width: 100%;
+  display: inline-block;
+  border-top: 1px solid gray;
+  text-align: center;
+  border-bottom: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.box-fun div {
+  display: inline-block;
+  width: 40%;
+  margin: auto;
+}
+
+.box-fun span {
+  width: 1%;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 .masonry {
-  background: #EEE;
+  background: #eee;
   overflow: auto;
 }
 
-.masonry .item {
-  width:  60px;
-  height: 60px;
-  float: left;
-  background: #DDD;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
-}
-
-.item.w2 { width:  120px; }
-.item.w3 { width:  180px; }
-.item.w4 { width:  240px; }
-
-.item.h2 { height: 100px; }
-.item.h3 { height: 130px; }
-.item.h4 { height: 180px; }
