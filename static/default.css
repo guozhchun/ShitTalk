@@ -4,17 +4,7 @@
           box-sizing: border-box;
 }
 
-.whole {
-  -webkit-transform: translate(0px, -20px);
-  text-align: center;
-}
 
-.reload {
-  width: 100%;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-}
 
 .box {
   float: left;
