@@ -12,6 +12,7 @@
 .box {
   float: left;
   min-width: 100px;
+  max-width: 150px;
   background: #fff;
   border: 0;
   margin: 1px;
@@ -47,5 +48,11 @@
 .masonry {
   background: #eee;
   overflow: auto;
+}
+
+.write {
+  display: inline-block;
+  float: right;
+  margin-top: 15px;
 }
 

@@ -5,6 +5,7 @@ html, body {
 body {
 	background: #333;
 	margin: 0;
+	overflow: scroll;
 }
 
 #ptr {
@@ -101,7 +102,7 @@ body {
 	100% {
 		-webkit-transform: scale(1);
 		transform: scale(1);
-		background-color: #eee;
+		background-color: gray;
 		opacity: 1;
 	}
 }

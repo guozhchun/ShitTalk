@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <script type="text/javascript src=">
 </script>
         <script src="../static/bower_components/jquery/dist/jquery.js" type="text/javascript">
@@ -41,6 +41,7 @@
             <div class="col-md-12">
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand">ShitTalk</a>
+                    <div class="write"><a href="#inputModal" data-toggle="modal"><div class="glyphicon glyphicon-pencil" aria-hidden="true"></div></a></div>
                 </div>
             </div>
         </div>
@@ -48,7 +49,7 @@
             <div class="masonry">
                 <div class="box panel-body">
                     <p>
-                        今天我在厕所里，想到了很多
+                        今天我在厕所里，想到了很多今天我在厕所里，想到了很多今天我在厕所里，想到了很多今天我在厕所里，想里，想到了很多今天我在厕所里，想到了很多今天我在厕所里，想到了很多今天我在厕所里，想到了很多
                     </p>
                     <div class="box-fun">
                         <div class="glyphicon glyphicon-comment" aria-hidden="true">
@@ -422,5 +423,31 @@
                 } );
             };
         </script>
+
+    <div style="display: none;" id="inputModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h2 class="text-center"><img src="" class="img-circle"><br>ShitTalk</h2>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block">
+            <div class="form-group">
+              <input class="form-control input-lg" placeholder="拉屎时要说话..." type="text">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block">发表</button>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+          </div>    
+      </div>
+  </div>
+  </div>
+</div>
     </body>
 </html>
