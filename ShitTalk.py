@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask.ext.bootstrap import Bootstrap
 from Model import Post, db
 from werkzeug.contrib.fixers import ProxyFix
+from celery import Celery
 import os
 import sys
 
@@ -17,15 +18,30 @@ bootstrap = Bootstrap(app)
 db.app = app
 db.init_app(app)
 
+# Celery configuration
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+
+# Initialize Celery
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
+
+# celery operation in background
+@celery.task
+def addTalk(cont, locat):
+	newPost = Post(content=cont, location=locat)
+	db.session.add(newPost)
+	db.session.commit()
+	print Post.query.all()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
 		if request.form['post_content'] != "":
-			newPost = Post(content=request.form['post_content'], location=0)
-			db.session.add(newPost)
-			db.session.commit()
-			print Post.query.all()
+			cont = request.form['post_content']
+			locat = 0
+			addTalk(cont, locat)
+		
 	return render_template('index.html')
 
 @app.route('/test', methods=['GET', 'POST'])
