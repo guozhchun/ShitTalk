@@ -40,7 +40,7 @@ def index():
 		if request.form['post_content'] != "":
 			cont = request.form['post_content']
 			locat = 0
-			addTalk(cont, locat)
+			addTalk.delay(cont, locat)
 		
 	return render_template('index.html')
 
