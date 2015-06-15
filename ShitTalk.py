@@ -54,13 +54,13 @@ def test():
 
 # <<<<<<< HEAD
 # app.wsgi_app = ProxyFix(app.wsgi_app)
-if __name__ == '__main__':
-   #app.run(debug=True, port = 8080, host='192.168.1.238')
-   app.run(debug = True)
-# =======
+# if __name__ == '__main__':
+#    #app.run(debug=True, port = 8080, host='192.168.1.238')
+#    app.run(debug = True)
+# # =======
 
-if __name__ == '__main__':
-    app.run(debug=True, port=8090, host='192.168.1.116')
+# if __name__ == '__main__':
+#     app.run(debug=True, port=8090, host='192.168.1.102')
 # >>>>>>> 7094cbaf654b6a7506ba89bc10042c05ce052343
 
 #     
