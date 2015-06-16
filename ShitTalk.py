@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask.ext.bootstrap import Bootstrap
 from Model import Post, db, PostComment
 from werkzeug.contrib.fixers import ProxyFix
@@ -53,11 +53,15 @@ def index():
 	post = Post.query.all()
 	post_id = []
 	post_contents = []
+	post_like = []
+	comment_num = []
 	for x in post:
 		post_id.append(str(x.id))
 		post_contents.append(x.content)
+		post_like.append(x.like_num)
+		comment_num.append(len(PostComment.query.filter_by(post_id = int(x.id)).all()))
 	length = len(post)
-	return render_template('index.html', post_id = post_id, post_contents = post_contents, length = length)
+	return render_template('index.html', post_id = post_id, comment_num = comment_num, post_like = post_like, post_contents = post_contents, length = length)
 
 @app.route('/test', methods=['GET', 'POST'])
 def test():
@@ -93,6 +97,23 @@ def comment(post_id):
 		return render_template('comment.html', length = length, comments = coms, comments_time = coms_time, post_content = post_content, post_time = post_time, post_like = post_like, post_id = post_id)
 	return rendirect(url_for('/'))
 
+@app.route('/addLike', methods=['GET', 'POST'])
+def addLike():
+	if request.method == "POST":
+		post_id = request.json['post_id']
+		post = Post.query.filter_by(id = int(post_id)).first()
+		post.like_num = post.like_num + 1
+		db.session.commit()
+		return jsonify(status="success")
+
+@app.route('/removeLike', methods=['GET', 'POST'])
+def removeLike():
+	if request.method == "POST":
+		post_id = request.json['post_id']
+		post = Post.query.filter_by(id = int(post_id)).first()
+		post.like_num = post.like_num - 1
+		db.session.commit()
+		return jsonify(status="success")
 
 
 # <<<<<<< HEAD

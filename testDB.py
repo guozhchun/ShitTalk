@@ -10,10 +10,5 @@ db.session.add(test1)
 
 allPost = Post.query.all()
 for x in allPost:
-	print x.content
-if Post.query.filter_by(id = 30).first() == None:
-	print "yes"
+	print x.like_num
 
-pc = PostComment.query.filter_by(post_id = 4).all()
-for x in pc:
-	print x.id
