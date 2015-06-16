@@ -14,4 +14,6 @@ for x in allPost:
 if Post.query.filter_by(id = 30).first() == None:
 	print "yes"
 
-print PostComment.query.filter_by(id = 1).all()
+pc = PostComment.query.all()
+for x in pc:
+	print x.post_id

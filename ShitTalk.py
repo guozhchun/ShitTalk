@@ -36,11 +36,13 @@ def addTalk(cont, locat):
 		print Post.query.all()
 
 @celery.task
-def addComment(cont, locat):
+def addComment(comt, post_id):
 	with app.app_context():
 		newCom = PostComment(content=comt, post_id = post_id)
 		db.session.add(newCom)
 		db.session.commit()
+		print PostComment.query.all()
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -48,7 +50,7 @@ def index():
 		if request.form['post_content'] != "":
 			cont = request.form['post_content']
 			locat = 0
-			addTalk.delay(cont, locat)
+			addTalk(cont, locat)
 
 	post = Post.query.all()
 	post_id = []
@@ -75,8 +77,9 @@ def comment(post_id):
 			if request.form['comment_content'] != "":
 				comt = request.form['comment_content']
 				post_id = post.id
-				addComment.delay(comt, post_id)
+				addComment(comt, post_id)
 
+		post = Post.query.filter_by(id = int(post_id)).first()
 		post_content = post.content
 		post_like = post.like_num
 		post_time = post.create_time
@@ -88,6 +91,7 @@ def comment(post_id):
 				coms.append(x.content)
 				coms_time.append(x.create_time)
 		length = len(comments)
+		post_id = str(post_id)
 		return render_template('comment.html', length = length, comments = coms, comments_time = coms_time, post_content = post_content, post_time = post_time, post_like = post_like, post_id = post_id)
 	return rendirect(url_for('/'))
 
