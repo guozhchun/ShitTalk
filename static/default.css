@@ -15,8 +15,8 @@
 
 .box {
   float: left;
-  min-width: 100px;
-  max-width: 150px;
+  min-width: 150px;
+  max-width: 200px;
   background: #fff;
   border: 0;
   margin: 1px;
@@ -24,6 +24,12 @@
   text-align: center;
   border-radius: 5px;
   padding-bottom: 0;
+}
+
+.num {
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 .box-fun {
@@ -60,3 +66,6 @@
   margin-top: 15px;
 }
 
+.box-fun a {
+  color: black;
+}
