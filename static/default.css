@@ -9,6 +9,10 @@
   margin-top: 50px;
 }
 
+.box p {
+  word-break:break-word;
+}
+
 .box {
   float: left;
   min-width: 100px;
