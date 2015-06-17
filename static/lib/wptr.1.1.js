@@ -70,6 +70,7 @@ var WebPullToRefresh = (function () {
 		h.on( 'pandown', _panDown );
 		h.on( 'panup', _panUp );
 		h.on( 'panend', _panEnd );
+		return true;
 	};
 
 	/**

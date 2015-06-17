@@ -56,7 +56,7 @@
 }
 
 .masonry {
-  background: #eee;
+  background: url(../static/img/background.jpg);
   overflow: auto;
 }
 

@@ -16,22 +16,21 @@
     <body>
         <div class="well"> 
              <form class="form-horizontal" role="form" action="{{ '/comment/'+ post_id }}" method="POST">
-              <h5>{{ post_content }}</h5>
+              <h5 style="word-break:break-word;">{{ post_content }}<a href="/" style="float:right;">返回首页</a></h5>
                <div class="form-group" style="padding:14px;">
                 <textarea class="form-control" name="comment_content" placeholder="大家评评理..."></textarea>
               </div>
               
-               <button class="btn btn-success pull-right" type="submit">Post</button>
+               <button class="btn btn-success pull-right" type="submit">我不服气</button>
                <ul class="list-inline">
-                    <li><a>赞:{{ post_like }}</a></li>
-                    <li><a>{{ post_time }}</a></li>
-                    <li><a href="/">返回首页</a></li>
+                    <li>{{ post_like }}个赞！</li>
+                    <li>{{ post_time.strftime('%Y-%m-%d %H:%M') }}</li>
                </ul>
             </form>
             <div class="panel-body">
               <div class="list-group">
                 {% for i in range(length) %}
-                    <a>#{{i+1}} {{ comments_time[i] }}</a><a class="list-group-item">{{ comments[i] }}</a>
+                    <a >#{{i+1}} {{ comments_time[i].strftime('%Y-%m-%d %H:%M') }}</a><a class="list-group-item" style="word-break:break-word;">{{ comments[i] }}</a>
                 {% endfor %}
               </div>
             </div>

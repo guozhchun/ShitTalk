@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask.ext.bootstrap import Bootstrap
 from Model import Post, db, PostComment
 from werkzeug.contrib.fixers import ProxyFix
@@ -49,17 +49,23 @@ def index():
 			cont = request.form['post_content']
 			locat = 0
 			addTalk.delay(cont, locat)
+			return redirect(url_for('index'))
 
 	post = Post.query.all()
 	post_id = []
 	post_contents = []
 	post_like = []
 	comment_num = []
-	for x in post:
-		post_id.append(str(x.id))
-		post_contents.append(x.content)
-		post_like.append(x.like_num)
-		comment_num.append(len(PostComment.query.filter_by(post_id = int(x.id)).all()))
+	# for x in post:
+	# 	post_id.append(str(x.id))
+	# 	post_contents.append(x.content)
+	# 	post_like.append(x.like_num)
+	# 	comment_num.append(len(PostComment.query.filter_by(post_id = int(x.id)).all()))
+	for x in range(0,len(post))[::-1]:
+		post_id.append(str(post[x].id))
+		post_contents.append(post[x].content)
+		post_like.append(post[x].like_num)
+		comment_num.append(len(PostComment.query.filter_by(post_id = int(post[x].id)).all()))
 	length = len(post)
 	return render_template('index.html', post_id = post_id, comment_num = comment_num, post_like = post_like, post_contents = post_contents, length = length)
 
@@ -80,11 +86,13 @@ def comment(post_id):
 				comt = request.form['comment_content']
 				post_id = post.id
 				addComment.delay(comt, post_id)
-
+				# addComment(comt,post_id)
+				return redirect(url_for('comment', post_id = post_id))
 		post = Post.query.filter_by(id = int(post_id)).first()
 		post_content = post.content
 		post_like = post.like_num
 		post_time = post.create_time
+
 		comments = PostComment.query.filter_by(post_id = int(post_id)).all()
 		coms = []
 		coms_time = []
@@ -95,7 +103,7 @@ def comment(post_id):
 		length = len(comments)
 		post_id = str(post_id)
 		return render_template('comment.html', length = length, comments = coms, comments_time = coms_time, post_content = post_content, post_time = post_time, post_like = post_like, post_id = post_id)
-	return rendirect(url_for('/'))
+	return redirect(url_for('index'))
 
 @app.route('/addLike', methods=['GET', 'POST'])
 def addLike():
@@ -117,14 +125,13 @@ def removeLike():
 
 
 # <<<<<<< HEAD
-# app.wsgi_app = ProxyFix(app.wsgi_app)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 if __name__ == '__main__':
-	#app.run(debug=True, port = 8080, host='192.168.1.238')
+# 	#app.run(debug=True, port = 8080, host='192.168.1.238')
     app.run(debug = True)
 # # =======
 
 # if __name__ == '__main__':
-#     app.run(debug=True, port=8090, host='192.168.1.102')
-# >>>>>>> 7094cbaf654b6a7506ba89bc10042c05ce052343
+    # app.run(debug=True, port=8000, host='192.168.1.102')
 
 #     
