@@ -5,7 +5,7 @@ from werkzeug.contrib.fixers import ProxyFix
 from celery import Celery
 import os
 import sys
-
+import shittalkredis
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -65,7 +65,13 @@ def index():
 		post_id.append(str(post[x].id))
 		post_contents.append(post[x].content)
 		post_like.append(post[x].like_num)
-		comment_num.append(len(PostComment.query.filter_by(post_id = int(post[x].id)).all()))
+		post_comment_num = shittalkredis.redis_read(post[x].id)
+		if post_comment_num != None:
+			comment_num.append(post_comment_num)
+		else:
+			shittalkredis.redis_write(post[x].id,len(PostComment.query.filter_by(post_id = int(post[x].id)).all()))
+			post_comment_num = shittalkredis.redis_read(post[x].id)
+			comment_num.append(post_comment_num)
 	length = len(post)
 	return render_template('index.html', post_id = post_id, comment_num = comment_num, post_like = post_like, post_contents = post_contents, length = length)
 
@@ -92,7 +98,8 @@ def comment(post_id):
 		post_content = post.content
 		post_like = post.like_num
 		post_time = post.create_time
-
+		shittalkredis.redis_clean(post_id)
+		
 		comments = PostComment.query.filter_by(post_id = int(post_id)).all()
 		coms = []
 		coms_time = []
@@ -128,7 +135,7 @@ def removeLike():
 app.wsgi_app = ProxyFix(app.wsgi_app)
 if __name__ == '__main__':
 # 	#app.run(debug=True, port = 8080, host='192.168.1.238')
-    app.run(debug=True)
+    app.run(debug = True)
 # # =======
 
 # if __name__ == '__main__':
