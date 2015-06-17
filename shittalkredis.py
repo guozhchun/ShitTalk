@@ -10,38 +10,36 @@ class Redis_Talk:
         self.comment_num=comment_num
     def print_talk(self):
         print self.id
-        
+'''        
     
 
 
-def redis_write(room,talk):   
-	key = room
-	val = talk  
+def redis_write(id,content_num):   
+	key = id
+	val = content_num  
 	r = redis.StrictRedis(host='127.0.0.1',port=6380)  
-	r.sadd(key,talk)  
+	r.hset('content_num',key,val)  
 
 		
-def redis_read(room):  
+def redis_read(id):  
 
-    key = room  
+    key = id  
     r = redis.StrictRedis(host='127.0.0.1',port=6380)  
-    value = r.smembers(room)
-
-    if value==set():
-        print "value is"
-        print value
+    if  r.hexists('content_num',key):
+        value = r.hget('content_num',key)
+    else:
         return None
-    	
-	print value
+	
+    print value
     return value  
 
 	
-def redis_clean():
-    r = redis.StrictRedis(host='127.0.0.1',port=6379)
-    r.flushdb()
+def redis_clean(id):
+    r = redis.StrictRedis(host='127.0.0.1',port=6380)
+    r.hdel('content_num',id)
 	
-'''
 
+'''
 class RedisCache(object):
     def __init__(self,keyname):
         self.keyName = keyname
@@ -71,7 +69,7 @@ class RedisCache(object):
             #print arr[i]['id'],arr[i]['content'],arr[i]['like_num'],arr[i]['content_num'],'\n'				
         return arr
 		
-		
+'''	
 '''     
 if __name__=='__main__':
     redisTest = RedisTest()
