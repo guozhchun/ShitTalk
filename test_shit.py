@@ -1,3 +1,5 @@
+#ignore this file
+#test the redis
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask.ext.bootstrap import Bootstrap
 from Model import Post, db, PostComment
