@@ -35,12 +35,12 @@
             </div>
         </div>
         <div id="content">
+
             <div class="masonry">
                 {% for i in range(length) %}
-                <div class="box panel-body">
+                <div class="box panel-body" style="background-color: #CCFF99;">
 
-
-                    <p>{{ post_contents[i] }}</p>
+                    <div style="overflow: hidden;"><p>{{ post_contents[i] }}</p></div>
                     <div class="box-fun">
                         <a href="{{ '/comment/'+ post_id[i] }}">
                             <div class="glyphicon glyphicon-comment" aria-hidden="true">
