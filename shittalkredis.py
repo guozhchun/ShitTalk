@@ -1,3 +1,4 @@
+#redis所用到的函数
 #coding=utf-8
 import redis
 import json
