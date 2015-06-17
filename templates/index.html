@@ -38,7 +38,7 @@
 
             <div class="masonry">
                 {% for i in range(length) %}
-                <div class="box panel-body" style="background-color: #CCFF99;">
+                <div class="box panel-body" id = "{{ i }}">
 
                     <div style="overflow: hidden;"><p>{{ post_contents[i] }}</p></div>
                     <div class="box-fun">
@@ -83,53 +83,62 @@
         </div>
     </div>
     <script type="text/javascript">
-                    var h = new Hammer(document.getElementById("content"));
-                    h.on("press", function(ev){
-                        console.log(ev);
-                    })
-
-                    $("div.glyphicon-heart").click(function() {
-                        console.log($(this).attr("id"));
-                        var data = {'post_id':$(this).attr("id")};
-                        if ($(this).hasClass("changeRed")) {
-                            $(this).removeClass("changeRed");
-                            var likenum = parseInt($(this).find(".num").html());
-                            likenum = likenum - 1;
-                            $(this).find(".num").html(likenum);
-                            $.ajax({
-                                url: '/removeLike',
-                                data: JSON.stringify(data, null, '\t'),
-                                contentType: 'application/json;charset=UTF-8',
-                                type: 'POST',
-                                success: function(response) {
-                                    console.log(response);
-                                },
-                                error: function(error) {
-                                    console.log(error);
-                                }
-                            });
-                        } else {
-                            $(this).addClass("changeRed");
-                            var likenum = parseInt($(this).find(".num").html());
-                            likenum = likenum + 1;
-                            $(this).find(".num").html(likenum);
-                            $.ajax({
-                                url: '/addLike',
-                                data: JSON.stringify(data, null, '\t'),
-                                contentType: 'application/json;charset=UTF-8',
-                                type: 'POST',
-                                success: function(response) {
-                                    console.log(response);
-                                },
-                                error: function(error) {
-                                    console.log(error);
-                                }
-                            });
-                        }
-                    })
-                </script>
+        var h = new Hammer(document.getElementById("content"));
+        h.on("press", function(ev){
+            console.log(ev);
+        });
 
 
+        // display the color random for every block
+        var allBlock = document.getElementsByClassName("box");
+        var colorList = ["#CCFF99", "#FFCC99", "#99CCFF", "#ABCDEF", "#CCCC99", "#CCCCCC", "#FFFFCC"];
+        var listLength = colorList.length
+        for (var i = 0; i < allBlock.length; i++) {
+            var index = Math.floor(Math.random() * listLength);
+            var block = "div#" + i + ".box";
+            $(block).css("background-color", colorList[index]);
+        }
+       
 
+        $("div.glyphicon-heart").click(function() {
+            console.log($(this).attr("id"));
+            var data = {'post_id':$(this).attr("id")};
+            if ($(this).hasClass("changeRed")) {
+                $(this).removeClass("changeRed");
+                var likenum = parseInt($(this).find(".num").html());
+                likenum = likenum - 1;
+                $(this).find(".num").html(likenum);
+                $.ajax({
+                    url: '/removeLike',
+                    data: JSON.stringify(data, null, '\t'),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            } else {
+                $(this).addClass("changeRed");
+                var likenum = parseInt($(this).find(".num").html());
+                likenum = likenum + 1;
+                $(this).find(".num").html(likenum);
+                $.ajax({
+                    url: '/addLike',
+                    data: JSON.stringify(data, null, '\t'),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            }
+        })
+    </script>
     </body>
 </html>
