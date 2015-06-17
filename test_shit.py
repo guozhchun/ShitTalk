@@ -1,5 +1,6 @@
 #ignore this file
 #test the redis
+#本文件增加评论数缓存
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask.ext.bootstrap import Bootstrap
 from Model import Post, db, PostComment
